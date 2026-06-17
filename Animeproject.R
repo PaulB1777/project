@@ -169,3 +169,28 @@ popularity_decade <- data.frame(
 
 View(popularity_decade)
 
+
+# Score vs. Genre
+#Creating a subset for popularity (scored_by) and score with genres, making sure to only include rows where the "genres" value is present
+anime_genre <- anime[!is.na(anime$genres),
+                    c("title", "score", "scored_by", "genres")]
+#Separating the "genres" variable 
+anime_genre <- anime_genre %>%
+  separate_rows(genres, sep = "\\|")
+
+View(anime_genre)
+
+#calculations
+score_genre <- data.frame(
+  Genre = levels(factor(anime_genre$genres)),
+  Mean = tapply(anime_genre$score, anime_genre$genres, mean),
+  Median = tapply(anime_genre$score, anime_genre$genres, median),
+  SD = tapply(anime_genre$score, anime_genre$genres, sd)
+)
+
+View(score_genre)
+
+ggplot(score_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Score vs. Genre", x = "Mean Score", y = "Genre")
