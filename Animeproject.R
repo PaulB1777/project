@@ -100,7 +100,7 @@ View(popularity_quartile)
 
 
 #Score vs. Year
-#Creating a suset for popularity (scored_by) and score with year, making sure to only include rows where the "year" value is present
+#Creating a subset for popularity (scored_by) and score with year, making sure to only include rows where the "year" value is present
 anime_year <- anime[!is.na(anime$year),
                     c("title", "score", "scored_by", "year")]
 # Calculating the decade
