@@ -207,3 +207,21 @@ ggplot(anime_genre,
   xlab ("Genre") +
   ylab ("Score") +
   labs(title = "Score vs. Genre")
+
+
+# Popularity (scored_by) vs. Genre
+#calculations
+popularity_genre <- data.frame(
+  Genre = levels(factor(anime_genre$genres)),
+  Mean = tapply(anime_genre$scored_by, anime_genre$genres, mean),
+  Median = tapply(anime_genre$scored_by, anime_genre$genres, median),
+  SD = tapply(anime_genre$scored_by, anime_genre$genres, sd)
+)
+
+View(popularity_genre)
+
+#Bar Graph
+ggplot(popularity_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Popularity (scored_by) vs. Genre", x = "Mean Popularity (scored_by)", y = "Genre")
