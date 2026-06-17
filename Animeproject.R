@@ -194,3 +194,16 @@ ggplot(score_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
   labs(title = "Score vs. Genre", x = "Mean Score", y = "Genre")
+
+#Boxplot
+ggplot(anime_genre, 
+       aes(
+         x = reorder(genres, score, FUN = mean), 
+         y = score)) +
+  coord_flip() +
+  stat_boxplot(geom="errorbar") +
+  geom_boxplot(fill="lightgreen") +
+  stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
+  xlab ("Genre") +
+  ylab ("Score") +
+  labs(title = "Score vs. Genre")
