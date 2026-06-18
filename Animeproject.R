@@ -225,3 +225,34 @@ ggplot(popularity_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
   labs(title = "Popularity (scored_by) vs. Genre", x = "Mean Popularity (scored_by)", y = "Genre")
+
+
+#Score vs. Type
+# Creating a subset
+anime_type <- anime[!is.na(anime$type),
+                    c("title", "score", "scored_by", "type")]
+
+View(anime_type)
+
+score_type <- data.frame(
+  Type = levels(factor(anime_type$type)),
+  Mean = tapply(anime_type$score, anime_type$type, mean),
+  Median = tapply(anime_type$score, anime_type$type, median),
+  SD = tapply(anime_type$score, anime_type$type, sd),
+  Count = tapply(anime_type$type, anime_type$type, length)
+)
+
+View(score_type)
+
+#Bar graph
+ggplot(anime_type, 
+       aes(
+         x = reorder(type, score, FUN = mean), 
+         y = score)) +
+  coord_flip() +
+  stat_boxplot(geom="errorbar") +
+  geom_boxplot(fill="lightgreen") +
+  stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
+  xlab ("Type") +
+  ylab ("Score") +
+  labs(title = "Score vs. Type")
