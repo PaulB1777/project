@@ -256,3 +256,28 @@ ggplot(anime_type,
   xlab ("Type") +
   ylab ("Score") +
   labs(title = "Score vs. Type")
+
+
+#Popularity (scored_by) vs. Type
+popularity_type <- data.frame(
+  Type = levels(factor(anime_type$type)),
+  Mean = tapply(anime_type$scored_by, anime_type$type, mean),
+  Median = tapply(anime_type$scored_by, anime_type$type, median),
+  SD = tapply(anime_type$scored_by, anime_type$type, sd),
+  Count = tapply(anime_type$type, anime_type$type, length)
+)
+
+View(popularity_type)
+
+#Bar graph
+ggplot(anime_type, 
+       aes(
+         x = reorder(type, scored_by, FUN = mean), 
+         y = scored_by)) +
+  coord_flip() +
+  stat_boxplot(geom="errorbar") +
+  geom_boxplot(fill="lightgreen") +
+  stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
+  xlab ("Type") +
+  ylab ("Popularity") +
+  labs(title = "Popularity vs. Type")
