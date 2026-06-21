@@ -14,6 +14,10 @@ str(anime)
 # counting how many NA values there are in each column
 colSums(is.na(anime))
 
+#Checking how many episodes are in each anime by count
+Episodes_length <- tapply(anime$title, anime$episodes, length)
+Episodes_length
+
 #remove unnecessary columns
 anime[, c("mal_id", "title_english", "title_japanese", "synopsis")] <- list(NULL)
 
@@ -190,6 +194,7 @@ score_genre <- data.frame(
 
 View(score_genre)
 
+#Bar graph
 ggplot(score_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
