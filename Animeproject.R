@@ -19,7 +19,9 @@ Episodes_length <- tapply(anime$title, anime$episodes, length)
 Episodes_length
 
 #remove unnecessary columns
-anime[, c("mal_id", "title_english", "title_japanese", "synopsis")] <- list(NULL)
+anime[, 
+      c("mal_id", "title_english", "title_japanese", "synopsis", "status", "airing", "episodes", "duration", "aired_to", "aired_from", "season", "members", "favorites", "producers", "licensors", "image_url")
+      ] <- list(NULL)
 
 
 #removing any rows where the score value is not present
@@ -286,3 +288,45 @@ ggplot(anime_type,
   xlab ("Type") +
   ylab ("Popularity") +
   labs(title = "Popularity vs. Type")
+
+
+# Score vs. Rating
+# Creating the subset
+anime_rating <- anime[!is.na(anime$rating),
+                    c("title", "score", "scored_by", "rating")]
+
+View(anime_rating)
+
+score_rating <- data.frame(
+  Type = levels(factor(anime_rating$rating)),
+  Mean = tapply(anime_rating$score, anime_rating$rating, mean),
+  Median = tapply(anime_rating$score, anime_rating$rating, median),
+  SD = tapply(anime_rating$score, anime_rating$rating, sd),
+  Count = tapply(anime_rating$rating, anime_rating$rating, length)
+)
+
+View(score_rating)
+
+#boxplot
+ggplot(anime_rating, 
+       aes(
+         x = reorder(rating, score, FUN = mean), 
+         y = score)) +
+  coord_flip() +
+  stat_boxplot(geom="errorbar") +
+  geom_boxplot(fill="lightgreen") +
+  stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
+  xlab ("Rating") +
+  ylab ("Score") +
+  labs(title = "Rating vs. Genre")
+
+# Popularity vs. Rating
+popularity_rating <- data.frame(
+  Type = levels(factor(anime_rating$rating)),
+  Mean = tapply(anime_rating$scored_by, anime_rating$rating, mean),
+  Median = tapply(anime_rating$scored_by, anime_rating$rating, median),
+  SD = tapply(anime_rating$scored_by, anime_rating$rating, sd),
+  Count = tapply(anime_rating$rating, anime_rating$rating, length)
+)
+
+View(popularity_rating)
