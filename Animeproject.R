@@ -330,3 +330,49 @@ popularity_rating <- data.frame(
 )
 
 View(popularity_rating)
+
+
+# Score vs. Studios
+# Creating a subset
+anime_studio <- anime[!is.na(anime$studios),
+                    c("title", "score", "scored_by", "studios")]
+
+# Separating the studios
+anime_studio <- anime_studio %>%
+  separate_rows(studios, sep = "\\|")
+
+score_studio <- data.frame(
+  Studio = levels(factor(anime_studio$studios)),
+  Mean = tapply(anime_studio$score, anime_studio$studios, mean),
+  Median = tapply(anime_studio$score, anime_studio$studios, median),
+  SD = tapply(anime_studio$score, anime_studio$studios, sd),
+  Count = tapply(anime_studio$studios, anime_studio$studios, length)
+)
+
+#Filtering out small studios for better readability
+score_studio <- score_studio[score_studio$Count >= 30, ]
+
+#Bar
+ggplot(score_studio, aes(x = reorder(Studio, Mean), y = Mean)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Score vs. Studio", x = "Score", y = "Studio")
+
+
+# Popularity vs. Studio
+popularity_studio <- data.frame(
+  Studio = levels(factor(anime_studio$studios)),
+  Mean = tapply(anime_studio$scored_by, anime_studio$studios, mean),
+  Median = tapply(anime_studio$scored_by, anime_studio$studios, median),
+  SD = tapply(anime_studio$scored_by, anime_studio$studios, sd),
+  Count = tapply(anime_studio$studios, anime_studio$studios, length)
+)
+
+#Filtering it out
+popularity_studio <- popularity_studio[popularity_studio$Count >= 30, ]
+
+#Bar
+ggplot(popularity_studio, aes(x = reorder(Studio, Median), y = Median)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Popularity (scored_by) vs. Studio", x = "Popularity (scored_by)", y = "Studio")
