@@ -318,7 +318,7 @@ ggplot(anime_rating,
   stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
   xlab ("Rating") +
   ylab ("Score") +
-  labs(title = "Rating vs. Genre")
+  labs(title = "Rating vs. Score")
 
 # Popularity vs. Rating
 popularity_rating <- data.frame(
@@ -376,3 +376,52 @@ ggplot(popularity_studio, aes(x = reorder(Studio, Median), y = Median)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
   labs(title = "Popularity (scored_by) vs. Studio", x = "Popularity (scored_by)", y = "Studio")
+
+
+# Score vs. Demographics
+# Subset
+anime_demo <- anime[!is.na(anime$demographics),
+                      c("title", "score", "scored_by", "demographics")]
+
+anime_demo <- anime_demo %>%
+  separate_rows(demographics, sep = "\\|")
+
+score_demo <- data.frame(
+  Demographic = levels(factor(anime_demo$demographics)),
+  Mean = tapply(anime_demo$score, anime_demo$demographics, mean),
+  Median = tapply(anime_demo$score, anime_demo$demographics, median),
+  SD = tapply(anime_demo$score, anime_demo$demographics, sd),
+  Count = tapply(anime_demo$demographics, anime_demo$demographics, length)
+)
+
+
+#boxplot
+
+ggplot(anime_demo, 
+       aes(
+         x = reorder(demographics, score, FUN = mean), 
+         y = score)) +
+  coord_flip() +
+  stat_boxplot(geom="errorbar") +
+  geom_boxplot(fill="lightgreen") +
+  stat_summary(fun = mean, col = "black", geom = "point", size = 3) +
+  xlab ("Demographics") +
+  ylab ("Score") +
+  labs(title = "Demographics vs. Score")
+
+
+#Popularity vs. Demographic
+
+popularity_demo <- data.frame(
+  Demographic = levels(factor(anime_demo$demographics)),
+  Mean = tapply(anime_demo$scored_by, anime_demo$demographics, mean),
+  Median = tapply(anime_demo$scored_by, anime_demo$demographics, median),
+  SD = tapply(anime_demo$scored_by, anime_demo$demographics, sd),
+  Count = tapply(anime_demo$demographics, anime_demo$demographics, length)
+)
+
+#Bar
+ggplot(popularity_demo, aes(x = reorder(Demographic, Median), y = Median)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Popularity (scored_by) vs. Demographic", x = "Popularity (scored_by)", y = "Demographic")
