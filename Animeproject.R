@@ -425,3 +425,32 @@ ggplot(popularity_demo, aes(x = reorder(Demographic, Median), y = Median)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
   labs(title = "Popularity (scored_by) vs. Demographic", x = "Popularity (scored_by)", y = "Demographic")
+
+
+# Score vs. Themes
+# subset
+anime_theme <- anime[!is.na(anime$themes),
+                    c("title", "score", "scored_by", "themes")]
+anime_theme <- anime_theme %>%
+  separate_rows(themes, sep = "\\|")
+
+score_theme <- data.frame(
+  Theme = levels(factor(anime_theme$themes)),
+  Mean = tapply(anime_theme$score, anime_theme$themes, mean),
+  Median = tapply(anime_theme$score, anime_theme$themes, median),
+  SD = tapply(anime_theme$score, anime_theme$themes, sd),
+  Count = tapply(anime_theme$themes, anime_theme$themes, length)
+)
+
+View(score_theme)
+
+# Popularity vs. Themes
+popularity_theme <- data.frame(
+  Theme = levels(factor(anime_theme$themes)),
+  Mean = tapply(anime_theme$scored_by, anime_theme$themes, mean),
+  Median = tapply(anime_theme$scored_by, anime_theme$themes, median),
+  SD = tapply(anime_theme$scored_by, anime_theme$themes, sd),
+  Count = tapply(anime_theme$themes, anime_theme$themes, length)
+)
+
+View(popularity_theme)
