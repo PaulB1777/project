@@ -51,7 +51,6 @@ ggplot(anime, aes(score)) +
                 args = list(mean = score_summary["Mean"], sd = sqrt(score_var)),
                 aes(color = "Normal Curve"),
                 lwd = 0.7) +
-  xlim(0,10) +
   labs(
     title = "Distribution of Anime Scores on MyAnimeList",
     x = "MyAnimeList Score",
@@ -447,7 +446,7 @@ View(score_theme)
 ggplot(score_theme, aes(x = reorder(Theme, Mean), y = Mean)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
-  labs(title = "Score vs. Theme", x = "Score", y = "Theme")
+  labs(title = "Score vs. Theme", x = "Theme", y = "Score")
 
 # Popularity vs. Themes
 popularity_theme <- data.frame(
@@ -463,4 +462,4 @@ View(popularity_theme)
 ggplot(popularity_theme, aes(x = reorder(Theme, Median), y = Median)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
   coord_flip() +
-  labs(title = "Popularity (scored_by) vs. Theme", x = "Popularity (scored_by)", y = "Theme")
+  labs(title = "Popularity (scored_by) vs. Theme", x = "Theme", y = "Popularity (scored_by)")
