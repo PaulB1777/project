@@ -26,11 +26,11 @@ I aim to find what variables are associated with a higher score and higher level
 ## Missing Values:
 -	Several variables have a notable number of missing values, including the “aired_to”, “season”, “year”, “studios”, “producers”, “licensors”, “genres”, “themes”, and “demographics” columns. As many of these are important for the analysis in this project, they will be kept. The data will be filtered to exclude these missing values only while analyzing the specific variable.  
 ## Score Distribution
-![Score Distribution Graph](./ graphs/Score_distribution.png)
+![Score Distribution Graph](./graphs/Score_distribution.png)
 -	The scores follow a roughly normal distribution. 
 ## Popularity vs. Score
-![Score vs. Popularity Graph](./ graphs/Popularity_scatter_normal.png) 
-![Score vs. Popularity Graph (Logarithmic Scale)](./ graphs/Popularity_scatter_log.png
+![Score vs. Popularity Graph](./graphs/Popularity_scatter_normal.png) 
+![Score vs. Popularity Graph (Logarithmic Scale)](./graphs/Popularity_scatter_log.png)
 ### Analysis and Insight
 There is an evident positive correlation (Correlation Coefficient$\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 = 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
 * Because the “scored_by” variable has a heavy right-skew, the logarithmic transformation is used to help readability. The right skew is caused by a minority of anime that have millions of reviews logged. Using the logarithmic transformation, the less popular anime’s data points become more readable. 
