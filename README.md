@@ -31,7 +31,7 @@ I aim to find what variables are associated with a higher score and higher level
 ## Popularity vs. Score
 ![Score vs. Popularity Graph](./graphs/Popularity_scatter_normal.png) 
 ![Score vs. Popularity Graph (Logarithmic Scale)](./graphs/Popularity_scatter_log.png)
-### Analysis and Insight
+### Analysis
 There is an evident positive correlation (Correlation Coefficient$\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 = 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
 * Because the “scored_by” variable has a heavy right-skew, the logarithmic transformation is used to help readability. The right skew is caused by a minority of anime that have millions of reviews logged. Using the logarithmic transformation, the less popular anime’s data points become more readable. 
 *	Where highly scored anime can be incredibly popular or an obscure indie gem, anime with low scores have the tendency to have a lower popularity. Essentially, anime with a high score may not always be more popular, but an anime with a low score is likely to never become very popular. 
