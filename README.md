@@ -33,7 +33,7 @@ I aim to find what variables are associated with a higher score and higher level
 ![Score vs. Popularity Graph (Logarithmic Scale)](./graphs/Popularity_scatter_log.png)
 ![Score vs. Popularity Quartiles](./graphs/Score_popularity_quartiles.png)
 ### Analysis
-There is an evident positive correlation (Correlation Coefficient$\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 \approx 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
+There is an evident positive correlation (Correlation Coefficient $\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 \approx 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
 * Because the “scored_by” variable has a heavy right-skew, the logarithmic transformation is used to help readability. The right skew is caused by a minority of anime that have millions of reviews logged. Using the logarithmic transformation, the less popular anime’s data points become more readable. 
 * Where highly scored anime can be incredibly popular or an obscure indie gem, anime with low scores have the tendency to have a lower popularity. Essentially, anime with a high score may not always be more popular, but an anime with a low score is likely to never become very popular. 
 * Dividing the popularity quartiles supports the positive correlation. Each quartile has a higher mean and median than its respective prior quartile. 
@@ -53,7 +53,7 @@ There appears to be no statistically significant correlation between an anime’
 ![Popularity vs. Year Graph (Log scale)](./graphs/Popularity_year_scatterplot_log.png)
 ![Popularity vs. Decade](./graphs/Popularity_decade.png)
 ### Analysis
-There is a clear positive correlation between release year and the popularity of an anime ($Correlation Value \approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
+There is a clear positive correlation between release year and the popularity of an anime ($Correlation Coefficient \approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
 * The logarithmic scale is used to help increase readability, because the peaks of popularity are exponentially increasing. The slope of the fit line is much more clearly upward sloping in the logarithmic scale, which makes it more clear that the correlation is significantly positive. 
 * I believe that there is a positive correlation for two reasons. The first reason is that anime as a medium has become more popular in recent years. The second reason is that more people have started using the website MyAnimeList to leave review and/or scores on anime they have watched. 
 * When grouped by decade, the average number of reviews on anime doubles each decade from the 1960s to 2010s. The median number of reviews follows a less aggressive exponential growth. 
