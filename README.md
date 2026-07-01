@@ -26,7 +26,7 @@ I aim to find what variables are associated with a higher score and higher level
 ## Missing Values:
 -	Several variables have a notable number of missing values, including the “aired_to”, “season”, “year”, “studios”, “producers”, “licensors”, “genres”, “themes”, and “demographics” columns. As many of these are important for the analysis in this project, they will be kept. The data will be filtered to exclude these missing values only while analyzing the specific variable.  
 ## Score Distribution
-![Score Distribution Graph](./ graphs/Score_distribution.png)
+![Score Distribution Graph](./graphs/Score_distribution.png)
 -	The scores follow a roughly normal distribution. 
 ## Popularity vs. Score
 ![Score vs. Popularity Graph](./graphs/Popularity_scatter_normal.png) 
