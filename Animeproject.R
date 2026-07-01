@@ -6,7 +6,7 @@ library(tidyr)
 #importing data and looking at it
 anime <- read_csv("C:/Users/paulb/OneDrive/Desktop/Anime Project/anime_dataset.csv")
 dim(anime)
-View(anime)
+head(anime)
 
 summary(anime)
 str(anime)
@@ -67,7 +67,7 @@ ggplot(anime, aes(score)) +
 # Popularity vs. Score
 # Making a subset only including the relevant columns
 anime_popularity <- subset(anime, select = c(title, score, scored_by))
-View(anime_popularity)
+head(anime_popularity)
 
 # Calculating the correlation
 popularity_correlation <- cor(anime_popularity$score, anime_popularity$scored_by)
@@ -102,7 +102,7 @@ popularity_quartile <- data.frame(
   SD = tapply(anime_popularity$score, anime_popularity$quartile, sd)
 )
 
-View(popularity_quartile)
+head(popularity_quartile)
 
 
 #Score vs. Year
@@ -135,7 +135,7 @@ score_decade <- data.frame(
   SD = tapply(anime_year$score, anime_year$decade, sd)
 )
 
-View(score_decade)
+head(score_decade)
 
 
 #Popularity (scored_by) vs. Year
@@ -172,7 +172,7 @@ popularity_decade <- data.frame(
   ReviewsTotal = tapply(anime_year$scored_by, anime_year$decade, sum)
 )
 
-View(popularity_decade)
+head(popularity_decade)
 
 
 # Score vs. Genre
@@ -183,7 +183,7 @@ anime_genre <- anime[!is.na(anime$genres),
 anime_genre <- anime_genre %>%
   separate_rows(genres, sep = "\\|")
 
-View(anime_genre)
+head(anime_genre)
 
 #calculations
 score_genre <- data.frame(
@@ -193,7 +193,7 @@ score_genre <- data.frame(
   SD = tapply(anime_genre$score, anime_genre$genres, sd)
 )
 
-View(score_genre)
+head(score_genre)
 
 #Bar graph
 ggplot(score_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
@@ -224,7 +224,7 @@ popularity_genre <- data.frame(
   SD = tapply(anime_genre$scored_by, anime_genre$genres, sd)
 )
 
-View(popularity_genre)
+head(popularity_genre)
 
 #Bar Graph
 ggplot(popularity_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
@@ -238,7 +238,7 @@ ggplot(popularity_genre, aes(x = reorder(Genre, Mean), y = Mean)) +
 anime_type <- anime[!is.na(anime$type),
                     c("title", "score", "scored_by", "type")]
 
-View(anime_type)
+head(anime_type)
 
 score_type <- data.frame(
   Type = levels(factor(anime_type$type)),
@@ -248,7 +248,7 @@ score_type <- data.frame(
   Count = tapply(anime_type$type, anime_type$type, length)
 )
 
-View(score_type)
+head(score_type)
 
 #Bar graph
 ggplot(anime_type, 
@@ -273,7 +273,7 @@ popularity_type <- data.frame(
   Count = tapply(anime_type$type, anime_type$type, length)
 )
 
-View(popularity_type)
+head(popularity_type)
 
 #Bar graph
 ggplot(anime_type, 
@@ -294,7 +294,7 @@ ggplot(anime_type,
 anime_rating <- anime[!is.na(anime$rating),
                     c("title", "score", "scored_by", "rating")]
 
-View(anime_rating)
+head(anime_rating)
 
 score_rating <- data.frame(
   Type = levels(factor(anime_rating$rating)),
@@ -304,7 +304,7 @@ score_rating <- data.frame(
   Count = tapply(anime_rating$rating, anime_rating$rating, length)
 )
 
-View(score_rating)
+head(score_rating)
 
 #boxplot
 ggplot(anime_rating, 
@@ -328,7 +328,7 @@ popularity_rating <- data.frame(
   Count = tapply(anime_rating$rating, anime_rating$rating, length)
 )
 
-View(popularity_rating)
+head(popularity_rating)
 
 
 # Score vs. Studios
@@ -441,7 +441,7 @@ score_theme <- data.frame(
   Count = tapply(anime_theme$themes, anime_theme$themes, length)
 )
 
-View(score_theme)
+head(score_theme)
 
 ggplot(score_theme, aes(x = reorder(Theme, Mean), y = Mean)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
@@ -457,7 +457,7 @@ popularity_theme <- data.frame(
   Count = tapply(anime_theme$themes, anime_theme$themes, length)
 )
 
-View(popularity_theme) 
+head(popularity_theme) 
 
 ggplot(popularity_theme, aes(x = reorder(Theme, Median), y = Median)) +
   geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
