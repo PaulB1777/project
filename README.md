@@ -43,7 +43,7 @@ There is an evident positive correlation (Correlation Coefficient $\approx 0.336
 ![Score vs. Year Graph](./graphs/Score_year_scatterplot.png)
 ![Score vs. Decades](./graphs/Score_decade.png)
 ### Analysis
-There appears to be no statistically significant correlation between an anime’s score and the year it released (Correlation Coefficient$\approx 0.0098$). This lack of statistical significance is supported by the fact that $R^2 \approx 9.696e-5$, meaning that the release year is responsible for less than 0.01% of the variance in score. 
+There appears to be no statistically significant correlation between an anime’s score and the year it released (Correlation Coefficient $\approx 0.0098$). This lack of statistical significance is supported by the fact that $R^2 \approx 9.696e-5$, meaning that the release year is responsible for less than 0.01% of the variance in score. 
 * The lack of a significant correlation is likely because of the quality, and hence user score, of anime across a year will average out, as per the law of large numbers. 
 * Notably, all anime released before the year 2000 have a score above 5, with one exception being “Chargeman Ken!”, which was released in 1974. This could suggest some sort of “nostalgia filter,” where older anime are scored more leniently than more modern anime. Another possible explanation is survivor bias, where only reasonably highly-regarded anime would be included on MyAnimeList’s database. 
 * When the scores are grouped by decade released, the only major deviation in average score over a decade is in the 1960s, where the average score is ~6.54. Another notable deviation in score is in the 1970s, with an average score of ~6.81. Other than those two decades, the average plateaus around 7 for every other decade. 
@@ -53,7 +53,7 @@ There appears to be no statistically significant correlation between an anime’
 ![Popularity vs. Year Graph (Log scale)](./graphs/Popularity_year_scatterplot_log.png)
 ![Popularity vs. Decade](./graphs/Popularity_decade.png)
 ### Analysis
-There is a clear positive correlation between release year and the popularity of an anime ($Correlation Coefficient \approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
+There is a clear positive correlation between release year and the popularity of an anime (Correlation Coefficient $\approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
 * The logarithmic scale is used to help increase readability, because the peaks of popularity are exponentially increasing. The slope of the fit line is much more clearly upward sloping in the logarithmic scale, which makes it more clear that the correlation is significantly positive. 
 * I believe that there is a positive correlation for two reasons. The first reason is that anime as a medium has become more popular in recent years. The second reason is that more people have started using the website MyAnimeList to leave review and/or scores on anime they have watched. 
 * When grouped by decade, the average number of reviews on anime doubles each decade from the 1960s to 2010s. The median number of reviews follows a less aggressive exponential growth. 
