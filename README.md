@@ -33,7 +33,7 @@ I aim to find what variables are associated with a higher score and higher level
 ![Score vs. Popularity Graph (Logarithmic Scale)](./graphs/Popularity_scatter_log.png)
 ![Score vs. Popularity Quartiles](./graphs/Score_popularity_quartiles.png)
 ### Analysis
-There is an evident positive correlation (Correlation Coefficient $\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 \approx 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
+There is an evident positive correlation (Correlation Coefficient$\approx 0.336$) between an anime’s score and its popularity (“scored_by”). A linear regression model yields an $R^2 \approx 0.113$, indicating that popularity is responsible for approximately 11.3% of the variance in the score.
 * Because the “scored_by” variable has a heavy right-skew, the logarithmic transformation is used to help readability. The right skew is caused by a minority of anime that have millions of reviews logged. Using the logarithmic transformation, the less popular anime’s data points become more readable. 
 * Where highly scored anime can be incredibly popular or an obscure indie gem, anime with low scores have the tendency to have a lower popularity. Essentially, anime with a high score may not always be more popular, but an anime with a low score is likely to never become very popular. 
 * Dividing the popularity quartiles supports the positive correlation. Each quartile has a higher mean and median than its respective prior quartile. 
@@ -43,7 +43,7 @@ There is an evident positive correlation (Correlation Coefficient $\approx 0.336
 ![Score vs. Year Graph](./graphs/Score_year_scatterplot.png)
 ![Score vs. Decades](./graphs/Score_decade.png)
 ### Analysis
-There appears to be no statistically significant correlation between an anime’s score and the year it released (Correlation Coefficient $\approx 0.0098$). This lack of statistical significance is supported by the fact that $R^2 \approx 9.696e-5$, meaning that the release year is responsible for less than 0.01% of the variance in score. 
+There appears to be no statistically significant correlation between an anime’s score and the year it released (Correlation Coefficient$\approx 0.0098$). This lack of statistical significance is supported by the fact that $R^2 \approx 9.696e-5$, meaning that the release year is responsible for less than 0.01% of the variance in score. 
 * The lack of a significant correlation is likely because of the quality, and hence user score, of anime across a year will average out, as per the law of large numbers. 
 * Notably, all anime released before the year 2000 have a score above 5, with one exception being “Chargeman Ken!”, which was released in 1974. This could suggest some sort of “nostalgia filter,” where older anime are scored more leniently than more modern anime. Another possible explanation is survivor bias, where only reasonably highly-regarded anime would be included on MyAnimeList’s database. 
 * When the scores are grouped by decade released, the only major deviation in average score over a decade is in the 1960s, where the average score is ~6.54. Another notable deviation in score is in the 1970s, with an average score of ~6.81. Other than those two decades, the average plateaus around 7 for every other decade. 
@@ -53,9 +53,40 @@ There appears to be no statistically significant correlation between an anime’
 ![Popularity vs. Year Graph (Log scale)](./graphs/Popularity_year_scatterplot_log.png)
 ![Popularity vs. Decade](./graphs/Popularity_decade.png)
 ### Analysis
-There is a clear positive correlation between release year and the popularity of an anime (Correlation Coefficient $\approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
+There is a clear positive correlation between release year and the popularity of an anime ($Correlation Value \approx 0.143$). Linear analysis reveals that $R^2 \approx 0.020$, which suggests that approximately 2% of variance in the popularity can be explained by the release year.
 * The logarithmic scale is used to help increase readability, because the peaks of popularity are exponentially increasing. The slope of the fit line is much more clearly upward sloping in the logarithmic scale, which makes it more clear that the correlation is significantly positive. 
 * I believe that there is a positive correlation for two reasons. The first reason is that anime as a medium has become more popular in recent years. The second reason is that more people have started using the website MyAnimeList to leave review and/or scores on anime they have watched. 
 * When grouped by decade, the average number of reviews on anime doubles each decade from the 1960s to 2010s. The median number of reviews follows a less aggressive exponential growth. 
 * There is a large “boom” in total reviews in the 2010s, having ~200,000,000 more total reviews than the 2000s. This could be caused by increased popularity of anime or the MyAnimeList reporting bias previously mentioned. It could also be caused by the fact that many very popular shows released in the 2010s (e.g. *Attack on Titan*, *One Punch Man*, etc.) 
+## Genre vs. Score
+![Score vs. Genre Bar Graph](./graphs/Score_genre_bar.png)
+![Score vs. Genre Boxplot](./graphs/Score_genre_box.png)
+###Analysis
+There are certain genres that have a higher or lower average score than the rest. However, in general, the majority of genres have an average score between 6 and 7. 
+* The highest average score genre is “award_winning” (~7.3). This is expected because an anime that receives an award is more likely to be higher quality in some regard than an anime that does not receive an award. 
+* The next four highest scoring genres on average are Suspense, Mystery, Drama, and Romance, which all have an average score above 6.87. There are a few possible explanations for these genres’ higher user ratings:
+	* Suspense, Drama, and Mystery are typically associated with interesting characters or plot. 
+	* Romance is associated with relatable characters or an emotional story.
+	* All four of these genres are designed to create an impact, either emotionally or thematically.
+* The lowest scoring genre on average is “avant_garde” (~5.3). Since avant-garde anime by nature will be adventurous in art style or themes, many audiences may be less receptive to these anime. 
+	* Notably, some anime that could be considered “avant-garde” are not labeled as such on MyAnimeList (e.g. the Madoka Magica and the Monogatari series). Notably, avant-garde can be difficult to define. 
+* The next three lowest scoring genres on average are Erotica, Hentai, and Horror, each having an average score below 6.25.
+	* Erotica and Hentai are explicit in nature, and their main purpose is not to tell a compelling story.
+	* Horror can be difficult to pull off in anime form. It is difficult to properly scare all audiences; what scares some audiences may not scare others. 
+* The lowest standard deviations are Erotica, Hentai, Ecchi, and Romance, all having a standard deviation below 0.75. 
+	* In this case, a low standard deviation suggests that shows of these genres are similarly scored. For the explicit genres of Erotica, Hentai, and Ecchi, this is possibly because these anime are produced for a specific purpose, which could result in less variance. 
+	* Similarly, Romance anime’s low standard deviation may be because romance anime are notorious for falling into common tropes. This will result in many romance anime being similar to each other, resulting in a more consistent audience reception. 
+## Genre vs. Popularity (“scored_by”)
+![Popularity (mean) vs. Genre Bar Graph](./graphs/Popularity_genre_bar.png)
+###Analysis
+By visually observing the bar graph, there appear to be notable differences between the popularity of anime of different genres, with some genres having substantially higher or lower level of popularity than others. 
+* The genre with the highest level of popularity is “award_winning,” with an average over 190,000 reviews. Notably, “award_winning” is also the genre with the highest standard deviation of over 413,000. 
+	* A possible explanation for the high popularity may be that an anime winning an award may attract new viewers to that anime. Conversely, an anime that is receiving lots of attention could be more likely to receive an award as a result of its popularity. 
+	* The high standard deviation may be because, although some award-winning anime will be very popular anime that receive high-prestige awards, some award-winning anime may be niche anime winning niche awards. One possible example of this is an indie film winning an award at a film festival. 
+* The genre with the second highest average number of reviews is Suspense, with an average over 170,000 reviews per anime. Interestingly, Suspense has the second highest standard deviation of 372,000.
+	* The high average number of reviews may be because a large number of very popular anime (e.g. the *Attack on Titan* series, *Death Note*, *Tokyo Ghoul*, and *Steins;Gate*, etc.) are labeled as Suspense on MyAnimeList. 
+	* These outliers may also contribute to the high standard deviation. Because so many massive outliers exist in the suspense genre, the standard deviation can be expected to be very high as well.
+* The lowest average popularity is Hentai, with just over 3,000 reviews on average. This could be because Hentai is not as popular as anime that are not explicit. This may be compounded by reporting bias; individuals who watch this explicit content may not record it on a website like MyAnimeList.
+* One notable genre is “Slice of Life,” which has an average ~16,000 reviews, but a median 975 reviews. This heavy right skew is likely the result of a combination of a small number of slice of life anime and a handful of massively popular anime compared to a majority of unpopular anime.
+	* Something that may be compounding this effect is tagging bias, where many character driven “comfort shows,” that could be considered slice of life, are only tagged as Romance or Drama on MyAnimeList (e.g. *The Fragrant Flower Blooms with Dignity*).
 
