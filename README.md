@@ -89,4 +89,23 @@ By visually observing the bar graph, there appear to be notable differences betw
 * The lowest average popularity is Hentai, with just over 3,000 reviews on average. This could be because Hentai is not as popular as anime that are not explicit. This may be compounded by reporting bias; individuals who watch this explicit content may not record it on a website like MyAnimeList.
 * One notable genre is “Slice of Life,” which has an average ~16,000 reviews, but a median 975 reviews. This heavy right skew is likely the result of a combination of a small number of slice of life anime and a handful of massively popular anime compared to a majority of unpopular anime.
 	* Something that may be compounding this effect is tagging bias, where many character driven “comfort shows,” that could be considered slice of life, are only tagged as Romance or Drama on MyAnimeList (e.g. *The Fragrant Flower Blooms with Dignity*).
-
+## Type vs. Score
+![Score vs. Type boxplot](./graphs/Score_type_boxplot.png) 
+###Analysis
+There appear to be some minor variations in average user score relative to the anime type.
+* The only “Type” that is notably higher than the others is TV. It has an average score of ~6.9. This is ~0.4 larger than the second highest average, TV Special. This suggests that TV anime typically receive the highest user scores.
+* The lowest Type by average is CM, which is commercial. CM is primarily just promotional material, so it is expected that it would have lower scores than a full anime.
+* The next two lowest types are Music and PV (Promotional Video). 
+* Music is mainly comprised of music videos or opening or closing theme songs that were released independently of the main show. Similar to commercials, the shorter length and more limited scope may contribute to the lower scores.
+* PV is similar to CM in that they are both promotion for a full-scale anime, but it contains more content. PV often function as a trailer, where a CM is a 30-second commercial. It makes sense that PV has a higher score than CM, but a lower score than full anime.
+## Type vs. Popularity (“scored_by”)
+![Popularity vs. Type boxplot](./graphs/Popularity_type_boxplot.png)
+![Popularity vs. Type boxplot](./graphs/Popularity_type_bar.png)
+### Analysis
+All of the Types of anime demonstrate a heavy right-skew. Additionally, there seem to be notable differences in popularity based on Type.
+* The most popular Type by far is TV anime. TV anime have a median number of reviews of over 13,000. This is notably higher than the second highest median, OVA, which has a median of about 2,100  reviews.
+	* A possible explanation could be that TV anime is the most “common” form of anime. It is both the most produced type of anime, according to MyAnimeList’s database, and also is the most widely accessible type of anime thanks to the rising popularity of streaming services.  
+* The second-highest format by median number of reviews is OVA (Original Video Animation), with a median of 2103 reviews. Historically, OVAs were independent, standalone productions. Currently, OVAs are most commonly child productions to already existing intellectual properties (e.g. *Kaguya-sama: Love is War*, *Attack on Titan*, etc.). These will attract the already existing fans of the series to the OVAs, possibly resulting in a higher median.
+* Comparatively, Movies have the second highest mean popularity (~21,000), but a very low median of 914 reviews. This is because movies will not always have the “safety net” that OVAs do. Many movies will remain in obscurity, never reaching global audiences. However, some independent anime movies can become very popular globally. Two of the twenty most popular anime on MyAnimeList are movies, *Your Name* and *A Silent Voice*.
+* The heavy right-skew is seen in that the mean is greater than the median for all types of anime. One possible explanation is that some anime will be massive hits, but the majority of anime are niche or obscure. 
+ 
