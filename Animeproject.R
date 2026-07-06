@@ -276,6 +276,12 @@ popularity_type <- data.frame(
 head(popularity_type)
 
 #Bar graph
+ggplot(popularity_type, aes(x = reorder(Type, Median), y = Median)) +
+  geom_bar(stat = "identity", col = "black", fill = "lightgreen") +
+  coord_flip() +
+  labs(title = "Popularity (scored_by) vs. Type", x = "Type", y = "Popularity (scored_by)")
+
+#Boxplot
 ggplot(anime_type, 
        aes(
          x = reorder(type, scored_by, FUN = mean), 
