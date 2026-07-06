@@ -61,7 +61,7 @@ There is a clear positive correlation between release year and the popularity of
 ## Genre vs. Score
 ![Score vs. Genre Bar Graph](./graphs/Score_genre_bar.png)
 ![Score vs. Genre Boxplot](./graphs/Score_genre_box.png)
-###Analysis
+### Analysis
 There are certain genres that have a higher or lower average score than the rest. However, in general, the majority of genres have an average score between 6 and 7. 
 * The highest average score genre is “award_winning” (~7.3). This is expected because an anime that receives an award is more likely to be higher quality in some regard than an anime that does not receive an award. 
 * The next four highest scoring genres on average are Suspense, Mystery, Drama, and Romance, which all have an average score above 6.87. There are a few possible explanations for these genres’ higher user ratings:
