@@ -78,7 +78,7 @@ There are certain genres that have a higher or lower average score than the rest
 	* Similarly, Romance anime’s low standard deviation may be because romance anime are notorious for falling into common tropes. This will result in many romance anime being similar to each other, resulting in a more consistent audience reception. 
 ## Genre vs. Popularity (“scored_by”)
 ![Popularity (mean) vs. Genre Bar Graph](./graphs/Popularity_genre_bar.png)
-###Analysis
+### Analysis
 By visually observing the bar graph, there appear to be notable differences between the popularity of anime of different genres, with some genres having substantially higher or lower level of popularity than others. 
 * The genre with the highest level of popularity is “award_winning,” with an average over 190,000 reviews. Notably, “award_winning” is also the genre with the highest standard deviation of over 413,000. 
 	* A possible explanation for the high popularity may be that an anime winning an award may attract new viewers to that anime. Conversely, an anime that is receiving lots of attention could be more likely to receive an award as a result of its popularity. 
@@ -91,7 +91,7 @@ By visually observing the bar graph, there appear to be notable differences betw
 	* Something that may be compounding this effect is tagging bias, where many character driven “comfort shows,” that could be considered slice of life, are only tagged as Romance or Drama on MyAnimeList (e.g. *The Fragrant Flower Blooms with Dignity*).
 ## Type vs. Score
 ![Score vs. Type boxplot](./graphs/Score_type_boxplot.png) 
-###Analysis
+### Analysis
 There appear to be some minor variations in average user score relative to the anime type.
 * The only “Type” that is notably higher than the others is TV. It has an average score of ~6.9. This is ~0.4 larger than the second highest average, TV Special. This suggests that TV anime typically receive the highest user scores.
 * The lowest Type by average is CM, which is commercial. CM is primarily just promotional material, so it is expected that it would have lower scores than a full anime.
