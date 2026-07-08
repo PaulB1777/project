@@ -108,4 +108,21 @@ All of the Types of anime demonstrate a heavy right-skew. Additionally, there se
 * The second-highest format by median number of reviews is OVA (Original Video Animation), with a median of 2103 reviews. Historically, OVAs were independent, standalone productions. Currently, OVAs are most commonly child productions to already existing intellectual properties (e.g. *Kaguya-sama: Love is War*, *Attack on Titan*, etc.). These will attract the already existing fans of the series to the OVAs, possibly resulting in a higher median.
 * Comparatively, Movies have the second highest mean popularity (~21,000), but a very low median of 914 reviews. This is because movies will not always have the “safety net” that OVAs do. Many movies will remain in obscurity, never reaching global audiences. However, some independent anime movies can become very popular globally. Two of the twenty most popular anime on MyAnimeList are movies, *Your Name* and *A Silent Voice*.
 * The heavy right-skew is seen in that the mean is greater than the median for all types of anime. One possible explanation is that some anime will be massive hits, but the majority of anime are niche or obscure. 
- 
+## Rating vs. Score
+![Score vs. Rating boxplot](./graphs/Score_rating_box.png)
+### Analysis
+There appear to be some notable differences between the scores of different ratings of anime. There is no notable skew in the ratings.
+* R-17+ has a notably higher average score (~6.97) than the other ratings. The second highest average rating is PG-13 (~6.71). Other ratings are notably lower. 
+* The lowest average score is G (5.91).
+	* One possible explanation is that the target audience of G-rated anime is different from the primary user base of MyAnimeList. This could introduce bias.
+* PG-13 is the most heavily produced anime, with over 9,000 anime being listed as PG-13 on MyAnimeList. The second most heavily produced anime rating is G, with over 5,200 anime having this rating. These large sample sizes suggest that the difference in their average scores is not just the result of statistical noise from small sample sizes. 
+* The highest standard deviations are R-17+ (~0.96) and R+ (~0.95).
+## Rating vs. Popularity (“scored_by”)
+### Analysis
+There are some notable differences in popularity of anime based on ratings. 
+* R-17+ has the highest median popularity, with a median over 17,000 reviews per anime. This is over 12,000 reviews higher than the second highest median, R+, which has a median of ~4,700 reviews per anime. This may suggest that R-17+ anime tend to attract a larger audience on MyAnimeList than other anime ratings.
+* All of the ratings have a heavy right skew, where the mean is much greater than the median. This is likely caused by a few very popular anime among a large number of niche anime.
+* The two lowest median number of reviews are G (295) and PG (747.5). These are the two lowest age ratings. The aforementioned bias related to the target audience and MyAnimeList user base could explain this low median popularity.
+* Rx has the lowest standard deviation, the third lowest median popularity (2026), and the second lowest mean popularity (~3292). As Rx is explicit material, this could possibly be explained by reporting bias. Audiences who watch Rx material may not record it on a platform like MyAnimeLIst.
+* Notably, PG rated anime have a higher mean popularity (8073) than Rx. One contributing factor may be that many popular anime (Studio Ghibli films and Pokemon anime often have hundreds of thousands of reviews) are rated PG. Comparatively, there is only 1 anime on MyAnimeList with over 100,000 reviews that is rated Rx.
+
