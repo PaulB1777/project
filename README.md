@@ -125,4 +125,27 @@ There are some notable differences in popularity of anime based on ratings.
 * The two lowest median number of reviews are G (295) and PG (747.5). These are the two lowest age ratings. The aforementioned bias related to the target audience and MyAnimeList user base could explain this low median popularity.
 * Rx has the lowest standard deviation, the third lowest median popularity (2026), and the second lowest mean popularity (~3292). As Rx is explicit material, this could possibly be explained by reporting bias. Audiences who watch Rx material may not record it on a platform like MyAnimeLIst.
 * Notably, PG rated anime have a higher mean popularity (8073) than Rx. One contributing factor may be that many popular anime (Studio Ghibli films and Pokemon anime often have hundreds of thousands of reviews) are rated PG. Comparatively, there is only 1 anime on MyAnimeList with over 100,000 reviews that is rated Rx.
+## Studio vs. Score
+![Score vs. Studio Bar graph](./graphs/Score_studio_bar.png)
+### Notes
+* Because multiple studios may work on the same anime, I needed to split the rows. 
+* In order to reduce noise, studios with fewer than 30 anime were filtered out. This removes small studios and independent creators who would skew the data. 
+### Analysis
+There is a notable relationship between the studio and average score.
+* Kyoto Animation has the highest mean (~7.36) and median (7.455) score. 
+* This result is consistent with Kyoto Animation’s reputation as a strong studio. 
+	* Investigating what specific aspects of Kyoto Animation’s anime makes it score highly (e.g. animation quality, storytelling, etc.) is outside of the scope of this project.
+* The studio with the highest standard deviation is Studio Ghibli, with a standard deviation of ~1.1. This is notably higher than the studio with the second highest standard deviation, Artland (0.97). 
+	* The high standard deviation may be caused by Studio Ghibli’s wide range of scores. It has many highly-scoring films (e.g. *Howl’s Moving Castle*, *Spirited Away*, etc.) and a number of low-scoring anime. Notably, MyAnimeList records 12 anime by Studio Ghibli that have a user score under 6, many of which are short films or commercials. 
+## Studio vs. Popularity (“scored_by”)
+![Popularity vs. Studio Bar graph](./graphs/Popularity_studio_bar_median.png)
+## Note
+* The same data cleansing used for the “Studio vs. Score” section is used in this section. 
+### Analysis
+There is a strong relationship between the studio that worked on it and the number of reviews that an anime has.
+* The three studios with the highest median number of reviews are White Fox (47.5k), Lerche (46k), and Diomedéa (45.5k).
+	* White Fox and Lerche each produced multiple very popular anime (White Fox worked on 4 titles with over one million reviews; Lerche worked on 3 titles with over 900k reviews). White Fox has the highest mean number of reviews (~225k), and Lerche also has a high mean number of reviews (~134k). 
+	* Comparatively, Diomedéa has a mean of only ~79k. Diomedéa does not have the massive hits that White Fox and Lerche have, with its most popular anime having less than 500k reviews. 
+	* Diomedéa’s low mean and high median suggest a more even distribution among its anime. 
+* The studio with the highest standard deviation is Wit Studio. Wit Studio produced the first seasons of *Attack on Titan*, which have over 1.7 million reviews each. However, MyAnimeList also records over 70 anime with fewer than 100k reviews by Wit Studio. 
 
