@@ -148,4 +148,18 @@ There is a strong relationship between the studio that worked on it and the numb
 	* Comparatively, Diomedéa has a mean of only ~79k. Diomedéa does not have the massive hits that White Fox and Lerche have, with its most popular anime having less than 500k reviews. 
 	* Diomedéa’s low mean and high median suggest a more even distribution among its anime. 
 * The studio with the highest standard deviation is Wit Studio. Wit Studio produced the first seasons of *Attack on Titan*, which have over 1.7 million reviews each. However, MyAnimeList also records over 70 anime with fewer than 100k reviews by Wit Studio. 
-
+## Demographic vs. Score
+![Score vs. Demographic boxplot](./graphs/Score_demo_box.png)
+### Analysis
+Overall, the scores of anime based on the target demographic are consistent, with one outlier. 
+* Anime with the target demographic of kids is the notably lowest average score. The four other target demographics have relatively similar average scores above (ranging between 7.11 and 6.79), but the kids demographic has an average score of ~5.96. 
+* Kids’ anime is the only demographic that is right-skewed, with all the other demographics being slightly left-skewed. 
+## Demographic vs. Popularity (“scored_by”)
+![Popularity vs. Demographic Bar](./graphs/Popularity_demo_bar_median.png)
+### Analysis
+Some demographics are notably more popular than others. All of the demographics display right-skew. 
+* The highest average demographic by number of reviews is Shounen (~93k). This is the expected result, as seven of the top ten most popular anime on MyAnimeList are Shounen. 
+	* These outliers are also the likely reason behind Shounen having the highest standard deviation (~256k).
+* Shounen has the second highest median to Josei. 
+	* This result is likely a result of statistical noise, as the Josei demographic only has 155 entries on MyAnimeList, which is the least amount of entries for a demographic.
+* “Kids” has the lowest mean (~3.3k) and the lowest median (227) number of reviews. This is possibly because the target demographic, children, may be less likely to use a website like MyAnimeList to track what anime they watch.  
