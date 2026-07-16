@@ -163,3 +163,27 @@ Some demographics are notably more popular than others. All of the demographics 
 * Shounen has the second highest median to Josei. 
 	* This result is likely a result of statistical noise, as the Josei demographic only has 155 entries on MyAnimeList, which is the least amount of entries for a demographic.
 * “Kids” has the lowest mean (~3.3k) and the lowest median (227) number of reviews. This is possibly because the target demographic, children, may be less likely to use a website like MyAnimeList to track what anime they watch.  
+## Themes vs. Score 
+![Score vs. Themes Bar](./graphs/Score_theme.png)
+### Note
+As anime on MyAnimeList could be labeled as having multiple types, I needed to separate the rows so that each anime could have multiple entries for different themes.
+### Analysis
+There are some themes that seem to have higher or lower average scores than others.
+* The theme with the highest average score is iyashikei, with an average score of ~7.45. 
+* Given that there are 173 anime on MyAnimeList labeled as iyashikei, this may be the result of statistical noise. 
+* The lowest average theme is Music (6.05). Music is also notably the theme with the highest count of anime (3508).  
+	* Many of the low-rated music videos on MyAnimeList are labeled as music, which likely lowers the average. 
+* Survival (1.05), Samurai (1.05), Gore (1.03) and Psychological (1.02) are the only four themes with a standard deviation above 1. 
+	* The Samurai theme has many highly-rated shows like *Gintama* and *Dororo*, as well as low-rated children’s samurai anime. This could possibly be the cause of the high standard deviation.  
+## Themes vs. Popularity (“scored_by”)
+ ![Popularity vs. Themes Bar](./graphs/Popularity_theme_median.png)
+### Note
+The same data cleansing used for Score vs. Theme was used in this section.
+### Analysis
+There is a notable difference in popularity between different themes.
+* Survival is the theme with the highest median (~72.5k) and mean (306.9k). 
+	* As Survival only has 74 shows on MyAnimeList, and a large number of those are the very popular *Attack on Titan* series, these high popularity metrics make sense. 
+	* Notably, Survival has the highest standard deviation (~567k).
+* Gore displays a similar pattern that Survival does. It has the second highest mean (~187k) and the second highest standard deviation (~390.7k). 
+	* Gore also includes *Attack on Titan*, as well as other popular anime such as *Tokyo Ghoul* and *Akame ga Kill!*. However, Gore has 260 anime on MyAnimeList, so its average popularity is likely dragged down by more unpopular anime than Survival is. 
+* The lowest median popularity is Music (269). As there is a large number of unpopular music videos, this is a lower median than represents full-scale music anime.
