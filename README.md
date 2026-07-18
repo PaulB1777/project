@@ -187,3 +187,7 @@ There is a notable difference in popularity between different themes.
 * Gore displays a similar pattern that Survival does. It has the second highest mean (~187k) and the second highest standard deviation (~390.7k). 
 	* Gore also includes *Attack on Titan*, as well as other popular anime such as *Tokyo Ghoul* and *Akame ga Kill!*. However, Gore has 260 anime on MyAnimeList, so its average popularity is likely dragged down by more unpopular anime than Survival is. 
 * The lowest median popularity is Music (269). As there is a large number of unpopular music videos, this is a lower median than represents full-scale music anime.
+## Final Comments
+* Certain outliers (e.g. *Attack on Titan*, *Death Note*, etc.) strongly influence many variables. Investigating these variables excluding these entries is outside the scope of this project.
+* Certain variables (e.g. Demographic) do not seem to be strong predictors of the user score of an anime.
+* The individual variables only explain part of the variation in an anime's score.
