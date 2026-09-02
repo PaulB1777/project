@@ -191,3 +191,7 @@ There is a notable difference in popularity between different themes.
 * Certain outliers (e.g. *Attack on Titan*, *Death Note*, etc.) strongly influence many variables. Investigating these variables excluding these entries is outside the scope of this project.
 * Certain variables (e.g. Demographic) do not seem to be strong predictors of the user score of an anime.
 * The individual variables only explain part of the variation in an anime's score.
+## Future Improvements
+* Omit outliers (e.g. *Attack on Titan*) to prevent skew for a more accurate data analysis.
+* Use One-way ANOVA testing to have stronger evidence for score differences. 
+* Use custom R functions in my code to reduce repetitiveness and improve readability.
